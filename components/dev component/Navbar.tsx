@@ -3,16 +3,10 @@ import React from "react";
 import {Button} from "../ui/button";
 import {
   ShoppingCart,
-  Star,
-  Truck,
-  CreditCard,
-  HeadphonesIcon,
   Search,
   UserCircle,
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import logo from "@/assets/img/Frame.png";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const {cart} = useSelector((state: any) => state)

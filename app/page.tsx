@@ -19,7 +19,7 @@ export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(asyncAddProducts());
-  }, []);
+  }, [dispatch]);
   const {products} = useSelector((state: any) => state);
   
   return products.length == 0 ? (

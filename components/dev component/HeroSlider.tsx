@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, {useEffect} from "react";
-import {Card, CardContent} from "@/components/ui/card";
+
+import React from "react";
 import {
   Carousel,
   CarouselContent,

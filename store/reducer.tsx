@@ -1,12 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
 import type {PayloadAction} from "@reduxjs/toolkit";
 
-export interface CounterState {
+export interface State {
   products: any[];
   cart: any[];
 }
 
-const initialState: CounterState = {
+const initialState: State = {
   products: [],
   cart: [],
 };

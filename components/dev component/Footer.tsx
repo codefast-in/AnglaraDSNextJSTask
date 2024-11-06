@@ -1,6 +1,4 @@
 import React from "react";
-import {Input} from "../ui/input";
-import {Button} from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import appStore from "@/assets/img/appStore.png";

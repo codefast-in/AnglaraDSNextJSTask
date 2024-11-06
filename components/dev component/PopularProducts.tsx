@@ -1,6 +1,6 @@
 import React from "react";
 import {Button} from "../ui/button";
-import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "../ui/card";
+import {Card, CardContent, CardFooter, CardHeader} from "../ui/card";
 import {Heart, Star} from "lucide-react";
 import Image from "next/image";
 import {useDispatch, useSelector} from "react-redux";

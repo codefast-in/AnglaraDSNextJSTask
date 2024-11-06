@@ -6,24 +6,26 @@ import {Button} from "@/components/ui/button";
 import {Trash2} from "lucide-react";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
-import { asyncRemoveFromCart } from "@/store/action";
+import {asyncRemoveFromCart} from "@/store/action";
+import {State} from "@/store/reducer";
 
 const Page = () => {
-  const {cart} = useSelector((state: any) => state);
-  console.log(cart);
+  const {cart} = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const removeFromCart = (product: any) => {
     dispatch(asyncRemoveFromCart(product));
   };
-   const total = cart.length == 0  ? 0 : cart.reduce(
-    (acc: any, curr: any) => acc + curr.price * 80,
-    0
-  );
+  const total =
+    cart.length == 0
+      ? 0
+      : cart.reduce((acc: any, curr: any) => acc + curr.price * 80, 0);
   return cart.length == 0 ? (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="text-center">
         <p>Your Cart Is Empty add some Products</p>
-       <Link href={"/"}><Button className="m-5">Home</Button></Link> 
+        <Link href={"/"}>
+          <Button className="m-5">Home</Button>
+        </Link>
       </div>
     </div>
   ) : (
@@ -47,7 +49,7 @@ const Page = () => {
         </div>
       </div>
       <div className="max-w-[85%] w-full flex flex-col gap-5 mx-auto">
-        {cart.map((product: any, index: number) => (
+        {cart.map((product: {image:string,title:string,price:number}, index: number) => (
           <div
             key={index}
             className="h-full w-full flex justify-between items-center">
@@ -82,7 +84,11 @@ const Page = () => {
             <div className=" w-[70%] text-center">
               RS. {Math.floor(product.price * 80)}
             </div>
-            <Button onClick={() => removeFromCart(product)} className="w-1/4" variant={"link"} size={"icon"}>
+            <Button
+              onClick={() => removeFromCart(product)}
+              className="w-1/4"
+              variant={"link"}
+              size={"icon"}>
               <Trash2 />
             </Button>
           </div>
@@ -111,7 +117,7 @@ const Page = () => {
           <div className="bg-[#F0FDFA] flex flex-col items-center gap-5 py-10 ">
             <div className="flex flex-col mx-10 md:mx-16 justify-between items-stretch gap-3">
               <div className="w-full justify-between flex items-center gap-3">
-                <span>Sub Total</span> <span>Rs.{total}</span>
+                <span>Sub Total</span> <span>Rs.{Math.round(total)}</span>
               </div>
               <div className="w-full justify-between flex items-center gap-3">
                 <span>Shipping</span> <span>Rs.00</span>
@@ -119,7 +125,7 @@ const Page = () => {
 
               <div className="border border-dashed border-primary"></div>
               <div className="w-full justify-between flex items-center gap-3">
-                <span>Grand Total</span> <span>Rs.{total}</span>
+                <span>Grand Total</span> <span>Rs.{Math.round(total)}</span>
               </div>
             </div>
             <div className="border border-1 border-emerald-900 w-full"></div>
