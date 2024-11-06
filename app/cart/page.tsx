@@ -8,7 +8,7 @@ import {Input} from "@/components/ui/input";
 import Link from "next/link";
 import { asyncRemoveFromCart } from "@/store/action";
 
-const page = () => {
+const Page = () => {
   const {cart} = useSelector((state: any) => state);
   console.log(cart);
   const dispatch = useDispatch();
@@ -131,4 +131,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
